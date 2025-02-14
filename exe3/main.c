@@ -2,10 +2,10 @@
 #include "pico/stdlib.h"
 #include <stdio.h>
 
-const int BTN_PIN = 26;
-const int BTN_PIN2 = 28;
-const int LED_PIN_R = 6;
-const int LED_PIN_G = 4;
+const int BTN_PIN = 28;
+const int BTN_PIN2 = 26;
+const int LED_PIN_R = 4;
+const int LED_PIN_G = 6;
 
 
 int main() {
@@ -25,33 +25,29 @@ int main() {
   gpio_set_dir(BTN_PIN2, GPIO_IN);
   gpio_pull_up(BTN_PIN2);
 
+  bool g = false;
+  bool r = false;
 
   while (true) {
-
-    if (!gpio_get(BTN_PIN)) {
-      sleep_ms(50);
-        if(gpio_get(LED_PIN_R)){
-          gpio_put(LED_PIN_R, 0);
-        }
-        else {
-          gpio_put(LED_PIN_R, 1);
-        }
-
+    if (!gpio_get(BTN_PIN)){
+      sleep_ms(100);
+      while (!gpio_get(BTN_PIN))
+      {
+        r = !r;
+        gpio_put(LED_PIN_R,r);
+      }
     }
-    if (!gpio_get(BTN_PIN2)) {
-      sleep_ms(50);
-        if(gpio_get(LED_PIN_G)){
-          gpio_put(LED_PIN_G, 0);
+
+    if (!gpio_get(BTN_PIN2)){
+        sleep_ms(100);
+        while (!gpio_get(BTN_PIN2))
+        {
+          g = !g;
+          gpio_put(LED_PIN_G,g);
         }
-        else {
-          gpio_put(LED_PIN_G, 1);
-        }
-    } 
-  }
+    }
+  }  
 }
-
-
-
 
 
 
