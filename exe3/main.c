@@ -24,34 +24,27 @@ int main() {
   gpio_init(BTN_PIN2);
   gpio_set_dir(BTN_PIN2, GPIO_IN);
   gpio_pull_up(BTN_PIN2);
-  
-  int a = 0;
-  int b = 0;
+
 
   while (true) {
 
     if (!gpio_get(BTN_PIN)) {
       while (!gpio_get(BTN_PIN)) {
-        if(a==0){
-          gpio_put(LED_PIN_R, 1);
-          a = 1;
-        }
-        else if(a==1){
+        if(gpio_get){
           gpio_put(LED_PIN_R, 0);
-          a = 0;
         }
-
+        else {
+          gpio_put(LED_PIN_R, 1);
+        }
       };
     }
     if (!gpio_get(BTN_PIN2)) {
       while (!gpio_get(BTN_PIN2)) {
-        if(b==0){
-          gpio_put(LED_PIN_G, 1);
-          b = 1;
-        }
-        else if(b==1){
+        if(gpio_get){
           gpio_put(LED_PIN_G, 0);
-          b = 0;
+        }
+        else {
+          gpio_put(LED_PIN_G, 1);
         }
       };
     } 
