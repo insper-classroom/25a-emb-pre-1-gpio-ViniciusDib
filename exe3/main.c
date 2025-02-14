@@ -38,7 +38,7 @@ int main() {
         sleep_ms(250);
         gpio_put(LED_PIN_G, 0);
       };
-    }
+    } 
   }
 }
 
