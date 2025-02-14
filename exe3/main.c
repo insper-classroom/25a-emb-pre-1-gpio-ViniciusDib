@@ -2,10 +2,10 @@
 #include "pico/stdlib.h"
 #include <stdio.h>
 
-const int BTN_PIN = 28;
-const int BTN_PIN2 = 26;
-const int LED_PIN_R = 4;
-const int LED_PIN_G = 6;
+const int BTN_PIN = 26;
+const int BTN_PIN2 = 28;
+const int LED_PIN_R = 6;
+const int LED_PIN_G = 4;
 
 
 int main() {
