@@ -30,7 +30,7 @@ int main() {
 
     if (!gpio_get(BTN_PIN)) {
       while (!gpio_get(BTN_PIN)) {
-        if(gpio_get){
+        if(gpio_get(LED_PIN_R)){
           gpio_put(LED_PIN_R, 0);
         }
         else {
@@ -40,7 +40,7 @@ int main() {
     }
     if (!gpio_get(BTN_PIN2)) {
       while (!gpio_get(BTN_PIN2)) {
-        if(gpio_get){
+        if(gpio_get(LED_PIN_G)){
           gpio_put(LED_PIN_G, 0);
         }
         else {
