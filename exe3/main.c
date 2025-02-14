@@ -30,25 +30,22 @@ int main() {
 
     if (!gpio_get(BTN_PIN)) {
       sleep_ms(50);
-      while (!gpio_get(BTN_PIN)) {
         if(gpio_get(LED_PIN_R)){
           gpio_put(LED_PIN_R, 0);
         }
         else {
           gpio_put(LED_PIN_R, 1);
         }
-      };
+
     }
     if (!gpio_get(BTN_PIN2)) {
       sleep_ms(50);
-      while (!gpio_get(BTN_PIN2)) {
         if(gpio_get(LED_PIN_G)){
           gpio_put(LED_PIN_G, 0);
         }
         else {
           gpio_put(LED_PIN_G, 1);
         }
-      };
     } 
   }
 }
